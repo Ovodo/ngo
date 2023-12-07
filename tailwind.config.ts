@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         docBlue: "#2186FC",
         docBlack: "#404040",
+        patientBlue: "#1B00EA",
       },
     },
   },
