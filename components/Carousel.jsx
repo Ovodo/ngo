@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-export default function ({ images }) {
+export default Carousel = ({ images }) => {
   var settings = {
     // dots: true,
     infinite: true,
@@ -43,4 +43,4 @@ export default function ({ images }) {
       </Slider>
     </div>
   );
-}
+};
