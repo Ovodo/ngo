@@ -28,3 +28,7 @@ body {
 .bord {
   border: 1px solid red;
 }
+
+.section {
+  margin-bottom: 120px;
+}
