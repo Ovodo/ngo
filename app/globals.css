@@ -30,5 +30,9 @@ body {
 }
 
 .section {
-  margin-bottom: 120px;
+  margin-bottom: clamp(60px, 80px, 120px);
+}
+
+h2 {
+  font-size: clamp(24px, 4vw, 48px);
 }

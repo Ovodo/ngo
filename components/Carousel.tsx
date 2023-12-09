@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-const Carousel = ({ images }) => {
+const Carousel = ({ images }: { images: string[] }) => {
   var settings = {
     // dots: true,
     infinite: true,
@@ -35,6 +35,7 @@ const Carousel = ({ images }) => {
                 className='rounded-md object-cover'
                 alt='img'
                 src={img}
+                priority
                 fill
               />
             </motion.div>

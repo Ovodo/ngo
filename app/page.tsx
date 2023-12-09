@@ -5,6 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
 import { useAnimation, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import DonationsCard from "@/components/DonationsCard";
 
 const hero = ["/group3.jpg", "/team.jpg", "/covid.jpg", "/team2.jpg"];
 
@@ -73,23 +74,23 @@ export default function Home() {
   }, [inView]);
 
   return (
-    <main>
+    <main className='relative'>
       <section className='relative  section flex items-center' id='HERO'>
         <div
           id='HERO_TEXT'
-          className='absolute top-[20vh] z-10 ml-16 flex flex-col space-y-5 items-start'
+          className='absolute top-[20vh] z-10 ml-2 lg:ml-16 flex flex-col space-y-5 items-start'
         >
-          <h2 className='text-docBlue flex flex-col font-semibold  lg:text-6xl'>
+          <h2 className='text-docBlue flex flex-col font-semibold '>
             Support
-            <span className='text-docBlack  mt-3 bg-teal-300 '>
+            <span className='text-docBlack whitespace-nowrap  mt-3 bg-teal-300 '>
               Patients with Procedures
             </span>
           </h2>
-          <p className='font-light text-white bg-docBlack '>
+          <p className='font-light w-[90%] lg:w-full text-white bg-docBlack '>
             Connecting doctors to patients, helping people needing procedures
           </p>
         </div>
-        <div className='absolute bg-docBlue px-7 py-3  shadow-sm shadow-white justify-around space-x-5 rounded-lg text-white top-[60vh] ml-16 z-10 flex items-center'>
+        <div className='absolute bg-docBlue px-7 py-3  shadow-sm shadow-white justify-around space-x-5 rounded-lg text-white top-[50vh] lg:top-[60vh]  ml-2 lg:ml-16 z-10 flex items-center'>
           <button className=' '>Book an appointment</button>
           <FaArrowRightLong />
         </div>
@@ -97,12 +98,14 @@ export default function Home() {
           <Carousel images={hero} />
         </div>
       </section>
-      <section ref={ref} className='section h-[80vh]  flex px-10' id='HOW_FAR'>
-        <div className='w-1/2 flex flex-col justify-between h-[60vh]'>
-          <h3 className='text-4xl font-'>
-            Let&apos;s tell you how far we have come
-          </h3>
-          <p className='w-[70%]'>
+      <section
+        ref={ref}
+        className='section lg:h-screen  flex flex-col lg:flex-row px-5 lg:px-10'
+        id='HOW_FAR'
+      >
+        <div className=' w-full lg:w-1/2  flex flex-col justify-between h-[75vh]'>
+          <h2 className='font-'>Let&apos;s tell you how far we have come</h2>
+          <p className='lg:w-[70%]'>
             We are pleased to tell you that we have catered to the needs of so
             many world wide, here are our numbers
           </p>
@@ -121,7 +124,7 @@ export default function Home() {
             See More
           </button>
         </div>
-        <div className='h-full relative  w-1/2'>
+        <div className='h-full relative hidden lg:flex  w-full lg:w-1/2'>
           <motion.div
             animate={animationImg}
             transition={{ type: "tween", duration: 1.5 }}
@@ -141,6 +144,12 @@ export default function Home() {
           >
             <Image src={"/hosp.png"} alt='hospi' className='' fill />
           </motion.div>
+        </div>
+      </section>
+      <section className='relative flex h-screen  flex-col justify-center items-center'>
+        <div className='absolute  w-[60vw] h-[60vw] mx-auto rounded-full border-[6vw] border-opacity-10 border-docBlue' />
+        <div>
+          <DonationsCard />
         </div>
       </section>
     </main>
