@@ -6,8 +6,15 @@ import { useInView } from "react-intersection-observer";
 import { useAnimation, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import DonationsCard from "@/components/DonationsCard";
+import Consultation from "@/components/Consultation";
 
-const hero = ["/group3.jpg", "/team.jpg", "/covid.jpg", "/team2.jpg"];
+const hero = [
+  "/group3.jpg",
+  "/team.jpg",
+  "/covid.jpg",
+  "/team2.jpg",
+  "/scope.svg",
+];
 
 const initialInfo = [
   { number: 0, targetNumber: 20, text: "Happy patients with our services" },
@@ -81,9 +88,9 @@ export default function Home() {
           className='absolute top-[20vh] z-10 ml-2 lg:ml-16 flex flex-col space-y-5 items-start'
         >
           <h2 className='text-docBlue flex flex-col font-semibold '>
-            Support
+            We Support
             <span className='text-docBlack whitespace-nowrap  mt-3 bg-teal-300 '>
-              Patients with Procedures
+              Patients that need procedures
             </span>
           </h2>
           <p className='font-light w-[90%] lg:w-full text-white bg-docBlack '>
@@ -91,7 +98,7 @@ export default function Home() {
           </p>
         </div>
         <div className='absolute bg-docBlue px-7 py-3  shadow-sm shadow-white justify-around space-x-5 rounded-lg text-white top-[50vh] lg:top-[60vh]  ml-2 lg:ml-16 z-10 flex items-center'>
-          <button className=' '>Book an appointment</button>
+          <button className=' '>Get Started</button>
           <FaArrowRightLong />
         </div>
         <div className='w-[99vw] h-max'>
@@ -100,10 +107,10 @@ export default function Home() {
       </section>
       <section
         ref={ref}
-        className='section lg:h-screen  flex flex-col lg:flex-row px-5 lg:px-10'
+        className='section  lg:h-screen  flex flex-col lg:flex-row px-5 lg:px-10'
         id='HOW_FAR'
       >
-        <div className=' w-full lg:w-1/2  flex flex-col justify-between h-[75vh]'>
+        <div className=' w-full lg:w-1/2  flex flex-col justify-between  h-[75vh] lg:h-[85vh]'>
           <h2 className='font-'>Let&apos;s tell you how far we have come</h2>
           <p className='lg:w-[70%]'>
             We are pleased to tell you that we have catered to the needs of so
@@ -146,10 +153,28 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      <section className='relative flex h-screen  flex-col justify-center items-center'>
-        <div className='absolute  w-[60vw] h-[60vw] mx-auto rounded-full border-[6vw] border-opacity-10 border-docBlue' />
-        <div>
-          <DonationsCard />
+      <section className='relative section  lg:top-[100px] flex h-screen   flex-col justify-center items-center'>
+        <div className='absolute  w-[70vw] h-[70vw] mx-auto rounded-full border-[6vw] border-opacity-10 border-docBlue' />
+        <div className='relative bottom-[100px] flex items-center justify-center w-full h-full'>
+          <div className='lg:absolute left-[5vw] top-[123px]'>
+            <DonationsCard />
+          </div>
+          <div className='hidden left-[40vw] top-[315px] absolute lg:flex'>
+            <DonationsCard />
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2 className='text-[#3f3f3f] text-center font-semibold'>
+          Free Consultation
+        </h2>
+        <p className='text-[#b3b3b3] leading-normal text-left mx-auto max-w-[794px] font-medium'>
+          Discover expertise and compassion in our dedicated team of
+          doctors.Meet skilled professionals committed to your well -being and
+          personalized care.
+        </p>
+        <div className='h-screen bg-white flex items-center justify-center pt-[11px]'>
+          <Consultation />
         </div>
       </section>
     </main>
