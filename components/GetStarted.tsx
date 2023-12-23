@@ -3,7 +3,6 @@ import GetStartedItem from "./GetStartedItem";
 import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import Link from "next/link";
-import { AnimatePresence } from "framer-motion";
 
 const GetStarted = () => {
   return (

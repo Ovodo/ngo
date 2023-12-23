@@ -1,3 +1,4 @@
+"use client";
 import GetStarted from "@/components/GetStarted";
 import GetStartedItem from "@/components/GetStartedItem";
 import React from "react";
