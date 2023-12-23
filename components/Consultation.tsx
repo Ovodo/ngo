@@ -101,11 +101,11 @@ const Consultation = () => {
   };
 
   return (
-    <div className='relative   bg-white  flex flex-col h-screen'>
+    <div className='relative   bg-white  flex flex-col h-full'>
       <div className='lg:flex items-center  h-screen justify-center hidden  min-h-max  relative'>
         {awards.map((comp, index) => (
           <motion.div
-            key={index}
+            key={index.toString()}
             className={`w-[90%] absolute top-10 lg:w-[521px]  h-[618px] pt-[41.5px] flex flex-col items-center bg-white rounded-[16.29px] shadow-[0px_4.41px_26.43px_-1.1px_#00000033] backdrop-blur-[44.06px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(44.06px)_brightness(100%)]`}
             animate={comp.animation}
             variants={imageVariants}

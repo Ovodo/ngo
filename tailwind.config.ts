@@ -19,6 +19,8 @@ const config: Config = {
         patientBlue: "#1B00EA",
         docAsh: "#909090",
         docP: "#4200FF",
+        darkBlue: "rgba(38, 51, 93, 1)",
+        textAsh: "#404040",
       },
     },
   },

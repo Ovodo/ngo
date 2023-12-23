@@ -19,9 +19,11 @@ const Navbar = () => {
   //
   return (
     <div className='relative    shadow-sm w-full shadow-slate-300 z-20   flex items-center lg:justify-around bg-white h-[10vh] '>
-      <h4 className='font-semibold ml-5 lg:ml-0 text-docBlue'>
-        Dona life <span className='text-black'>Foundation</span>
-      </h4>
+      <Link href={"/"}>
+        <h4 className='font-semibold ml-5 lg:ml-0 text-docBlue'>
+          Dona life <span className='text-black'>Foundation</span>
+        </h4>
+      </Link>
       <ul
         className={`pl-5 w-[60vw] lg:w-[45vw] menu  ${
           !isOpen
@@ -44,13 +46,17 @@ const Navbar = () => {
         <li className={listStyle}>
           <Link href={"/"}>Contact us</Link>
         </li>
-        <button className='px-7 lg:hidden absolute top-[60vh] z-10 left-5 text-white py-2 rounded-xl bg-docBlue text-base'>
+        <Link href={"/donate"}>
+          <button className='px-7 lg:hidden hover:scale-110 hover:bg-docP duration-300 active:scale-90  absolute top-[60vh] z-10 left-5 text-white py-2 rounded-xl bg-docBlue text-base'>
+            Donate
+          </button>
+        </Link>
+      </ul>
+      <Link href={"/donate"}>
+        <button className='px-7 hidden hover:scale-110 hover:bg-docP duration-300 active:scale-90  lg:flex text-white py-2 rounded-xl bg-docBlue text-base'>
           Donate
         </button>
-      </ul>
-      <button className='px-7 hidden lg:flex text-white py-2 rounded-xl bg-docBlue text-base'>
-        Donate
-      </button>
+      </Link>
       <div
         onClick={toggleMenu}
         className={`lg:hidden flex absolute right-2  items-center justifiy-center mr-2`}
