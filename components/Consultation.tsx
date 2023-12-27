@@ -146,11 +146,11 @@ const Consultation = () => {
           </motion.div>
         ))}
       </div>
-      <div className='flex flex-row px-5 py-5 overflow-scroll space-x-10  w-[100vmin] lg:hidden'>
+      <div className='flex flex-row px-0 py-5  hide-scroll overflow-scroll   w-[100vmin] lg:hidden'>
         {awards.map((comp, index) => (
           <motion.div
             key={index.toString()}
-            className={`min-w-[70vw]  min-h-[50vmax]  pt-[41.5px] flex flex-col items-center bg-white rounded-[16.29px] shadow-[0px_4.41px_26.43px_-1.1px_#00000033] backdrop-blur-[44.06px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(44.06px)_brightness(100%)]`}
+            className={`min-w-[70vw]   min-h-[50vmax] mx-5  pt-[41.5px] flex flex-col items-center bg-white rounded-[16.29px] shadow-[0px_4.41px_26.43px_-1.1px_#00000033] backdrop-blur-[44.06px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(44.06px)_brightness(100%)]`}
           >
             <div className='relative w-[90%]  lg:w-[378px] mb-2'>
               <div className='w-[115px] h-[28px] flex  items-center px-5   bg-[#ececec] rounded-[13.23px]'>
@@ -180,7 +180,7 @@ const Consultation = () => {
           </motion.div>
         ))}
       </div>
-      <div className='flex absolute bottom-5 self-center justify-center gap-2 mt-4'>
+      <div className='hidden lg:flex absolute bottom-5 self-center justify-center gap-2 mt-4'>
         {awards.map((_, index) => (
           <div
             key={index}

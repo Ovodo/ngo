@@ -18,7 +18,10 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: white;
+  background: linear-gradient(
+    240deg,
+    var(--background-start-rgb, var(--background-end-rgb))
+  );
 }
 .bord {
   border: 1px solid red;
@@ -27,6 +30,14 @@ body {
 .section {
   margin-bottom: 120px;
   /* overflow: hidden; */
+}
+
+.hide-scroll {
+  scrollbar-width: none; /* Firefox will use its default scrollbar style */
+  -ms-overflow-style: none; /* Hide scrollbar for Microsoft Edge */
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit-based browsers */
 }
 
 h2 {
@@ -254,6 +265,7 @@ p {
 @media (max-width: 700px) {
   .section {
     margin-bottom: 40px;
+    /* padding: 2rem; */
   }
   h3 {
     font-size: 1.5rem /* 24px */;

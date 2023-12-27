@@ -173,7 +173,7 @@ export default function Home() {
             <FaArrowRightLong />
           </div>
         </Link>
-        <div className='w-[99vw] h-max'>
+        <div className='w-[99vw] p-1 bg-gray-200 bg-opacity-50 h-max'>
           <Carousel images={hero} />
         </div>
       </section>
@@ -240,12 +240,12 @@ export default function Home() {
         <h2 className='text-[#3f3f3f] text-center font-semibold'>
           Free Consultation
         </h2>
-        <p className='text-[#b3b3b3] leading-normal text-center lg:text-left mx-auto max-w-[794px] font-medium'>
+        <p className='text-[#b3b3b3] px-2 leading-normal text-center lg:text-left mx-auto max-w-[794px] font-medium'>
           Discover expertise and compassion in our dedicated team of
           doctors.Meet skilled professionals committed to your well -being and
           personalized care.
         </p>
-        <div className='h-[70dvh]  lg:min-h-screen bg-transparent flex items-center justify-center pt-[11px]'>
+        <div className='h-[70vh] lg:min-h-screen bg-transparent flex items-center justify-center pt-[11px]'>
           <Consultation />
         </div>
       </section>
@@ -261,7 +261,7 @@ export default function Home() {
           <SingleCarousel images={media} />
         </div>
       </section>
-      <section className='section overflow-hidden w-[99dvw]'>
+      <section className='section mt-5 lg:mt-0 overflow-hidden w-[99vw]'>
         <h2 className='text-[#3f3f3f] text-center font-semibold'>Volunteer</h2>
         <p className='text-[#b3b3b3] leading-normal text-center mx-auto max-w-[794px] font-medium'>
           Explore the collaborative strength of our valued partners.

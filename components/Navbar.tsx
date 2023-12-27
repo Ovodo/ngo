@@ -25,6 +25,7 @@ const Navbar = () => {
         </h4>
       </Link>
       <ul
+        onClick={() => toggleMenu()}
         className={`pl-5 w-[60vw] lg:w-[45vw] menu  ${
           !isOpen
             ? "-translate-x-full opacity-0"
@@ -32,7 +33,7 @@ const Navbar = () => {
         }  h-[90vh] lg:h-full  duration-300 lg:translate-x-0  lg:opacity-100 transition-all ease-linear  lg:flex-row items-start justify-start lg:justify-between lg:items-center absolute lg:relative top-[10vh] lg:top-0 left-0 flex flex-col bg-white`}
       >
         <li className={listStyle}>
-          <Link href={"/"}>About us</Link>
+          <Link href={"/about"}>About us</Link>
         </li>
         <li className={listStyle}>
           <Link href={"/"}>Media</Link>

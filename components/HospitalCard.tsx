@@ -6,7 +6,7 @@ const font = Montserrat({ subsets: ["latin"] });
 
 const HospitalCard = () => {
   return (
-    <div className='mr-[50px]' style={font.style}>
+    <div className='mx-5' style={font.style}>
       <div className='min-h-[350px] relative min-w-[350px]'>
         <Image src={"/hospital.svg"} fill alt='hospital' />
       </div>
