@@ -21,7 +21,7 @@ const SingleCarousel = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className='w-[90dvw] h-[40vh]'>
+    <div className='w-[90vw] h-[40vh]'>
       <Slider {...settings}>
         {images.map((img, index) => {
           return (

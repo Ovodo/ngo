@@ -38,7 +38,7 @@ const SpecialistCard = ({ images }: { images: any[] }) => {
               className='min-w-[360px] mb-10 rounded-[10px]   h-[343px] relative'
             >
               {/* <div className='relative w-[298px] h-[293px]'> */}
-              <Image src={img.src} alt='docs' fill className='object-cover' />
+              <Image src={img.src} alt='docs' fill className='object-contain' />
               {/* </div> */}
               <div className=' absolute text-white translate-x-1/2 right-[50%] bottom-3 mx-auto self-center w-[273px] h-[90px] rounded-[10px] backdrop-blur-[200px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(200px)_brightness(100%)] [background:linear-gradient(180deg,rgba(37,180,248,0.3)_10.48%,rgba(37,180,248,0)_100%)]'>
                 <p className='p-3 text-2xl leading-none font-light'>
