@@ -12,7 +12,7 @@ const Page = () => {
       <div className='flex w-[90%]  mb-[4vw] mt-[5vw] space-y-2 lg:space-y-0 items-start flex-col lg:flex-row justify-between'>
         <div className='hidden lg:flex flex-col'>
           <Link
-            href={"/?started=true"}
+            href={"/donate/#donate"}
             className='max-w-[25vw] lg:max-w-[10vw]  mb-[3vw]  bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-around rounded-lg text-white   ml-2 lg:ml-16 z-10 flex items-center'
           >
             Donate
@@ -45,7 +45,10 @@ const Page = () => {
           </div>
         </div>
         <div className='w-full lg:w-[50%] mx-auto h-full flex flex-col lg:ml-32 justify-around items-center lg:items-start'>
-          <h5 className='text-2xl font-medium text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'>
+          <h5
+            id='donate'
+            className='text-2xl font-medium text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'
+          >
             Donate
           </h5>
           <div className='flex flex-col lg:flex-row '>
@@ -73,7 +76,7 @@ const Page = () => {
             cText='terms and conditions'
           />
           <Link
-            href={"/?started=true"}
+            href={"/donate/#donate"}
             className='max-w-[25vw]  lg:max-w-[10vw]   bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-around rounded-lg text-white   hover:ml-3  z-10 flex items-center'
           >
             Donate

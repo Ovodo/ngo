@@ -36,7 +36,7 @@ const Navbar = () => {
           <Link href={"/about"}>About us</Link>
         </li>
         <li className={listStyle}>
-          <Link href={"/"}>Media</Link>
+          <Link href={"/media"}>Media</Link>
         </li>
         <li className={listStyle}>
           <Link href={"/"}>Volunteer</Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
           <Link href={"/"}>Free Consultation</Link>
         </li>
         <li className={listStyle}>
-          <Link href={"/"}>Contact us</Link>
+          <Link href={"/contact"}>Contact us</Link>
         </li>
         <Link href={"/donate"}>
           <button className='px-7 lg:hidden hover:scale-110 hover:bg-docP duration-300 active:scale-90  absolute top-[60vh] z-10 left-5 text-white py-2 rounded-xl bg-docBlue text-base'>

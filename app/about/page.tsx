@@ -11,8 +11,8 @@ const Page = () => {
           <h5 className=' font-semibold text-[#3f3f3f] text-[64px] tracking-[0] leading-[69.8px] whitespace-nowrap'>
             About us
           </h5>
-          <div className='lg:w-[631px] mt-5 h-[768px]'>
-            <p className=' lg:w-[631px]  font-medium text-center lg:text-left text-[#606060] text-[24px] lg:text-[32px] tracking-[0] leading-[normal]'>
+          <div className='lg:w-[631px] mt-10 lg:mt-5  h-[768px]'>
+            <p className=' lg:w-[631px]  font-medium text-center lg:text-left text-[#606060] text-[20px] lg:text-[32px] tracking-[0] leading-[normal]'>
               We are a group of compassionate humans that care about people with
               critical health needs and are challenged with finance.
               <br />
@@ -42,7 +42,7 @@ const Page = () => {
       </div>
       <div className='hidden lg:flex mx-auto w-[90%]  mt-20 items-start  flex-col'>
         <Link
-          href={"/?started=true"}
+          href={"/donate"}
           className='max-w-[25vw] lg:max-w-[10vw]  mb-[3vw]  bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-around rounded-lg text-white   z-10 flex items-center'
         >
           Donate
