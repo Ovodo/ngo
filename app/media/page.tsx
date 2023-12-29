@@ -6,7 +6,7 @@ const med = [1, 2, 3, 4, 5, 6];
 const Page = () => {
   return (
     <div className='relative flex flex-col items-center w-full h-full'>
-      <div className='ml-[20px] lg:ml-[100px] mt-[50px] lg:w-[639px]'>
+      <div className='ml-[20px] lg:ml-[100px] lg:self-start mt-[50px] lg:w-[639px]'>
         <h4 className='text-[#404040] whitespace-nowrap font-semibold text-[32px] lg:text-[64px] leading-[69.76px]'>
           See what we have done
         </h4>
