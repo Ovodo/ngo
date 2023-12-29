@@ -16,7 +16,7 @@ const Page = () => {
       </div>
       <div className='grid my-[50px] px-[2vw] lg:px-[70px] grid-cols-1 lg:grid-cols-3 gap-[72px]'>
         {med.map((item, index: number) => (
-          <MediaCard />
+          <MediaCard key={index.toString()} />
         ))}
       </div>
     </div>

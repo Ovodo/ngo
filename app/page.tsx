@@ -28,7 +28,7 @@ const media = [
   "/media/gloves.svg",
   "/media/hallway.svg",
   "/media/bed.svg",
-  "/media/girl.svg",
+  "/media/girl.png",
   "/media/scan.svg",
 ];
 const specials = [
