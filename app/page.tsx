@@ -31,13 +31,13 @@ const media = [
   "/media/girl.png",
   "/media/scan.svg",
 ];
-const specials = [
-  "/specialist/jim.png",
-  "/specialist/carry.png",
-  "/specialist/wade.png",
-  "/specialist/jenny.png",
-  "/specialist/jacob.png",
-];
+// const specials = [
+//   "/specialist/jim.png",
+//   "/specialist/carry.png",
+//   "/specialist/wade.png",
+//   "/specialist/jenny.png",
+//   "/specialist/jacob.png",
+// ];
 const special = [
   {
     name: `Jim Carry`,
@@ -69,11 +69,38 @@ const special = [
     animation: "center",
     src: "/specialist/carry.png",
   },
-  //   {
-  //     name: `Management Consultant with Distinction in Time Management (London Graduate School).`,
-  //     field: "right1",
-  //     animation: "right1",
-  //   },
+];
+const specials = [
+  {
+    name: `Eko Hospital`,
+    field: "General Health",
+    animation: "center",
+    src: "/hall.png",
+  },
+  {
+    name: `First Consultants Medical Centre`,
+    field: "Surgery",
+    animation: "left",
+    src: "/green_bed.png",
+  },
+  {
+    name: `St. Nicholas hospital`,
+    field: "Child health",
+    animation: "left1",
+    src: "/machine.png",
+  },
+  {
+    name: `Lagoon Hospital`,
+    field: "Women Fertility",
+    animation: "right1",
+    src: "/drill.png",
+  },
+  {
+    name: `Reddington Hospital`,
+    field: "Orthopedics",
+    animation: "center",
+    src: "/hospital.svg",
+  },
 ];
 
 const initialInfo = [
@@ -169,11 +196,11 @@ export default function Home() {
         </div>
         <Link href={"/?started=true"} className=' '>
           <div className='absolute bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-7 py-3  shadow-md shadow-slate-700 justify-around space-x-5 rounded-lg text-white top-[50vh] lg:top-[60vh]  ml-2 lg:ml-16 z-10 flex items-center'>
-            Get Started
+            Get Involved
             <FaArrowRightLong />
           </div>
         </Link>
-        <div className='w-[99vw] p-1 bg-gray-200 bg-opacity-50 h-max'>
+        <div className='w-[98.5vw] p-1 bg-gray-200 bg-opacity-50 h-max'>
           <Carousel images={hero} />
         </div>
       </section>
@@ -261,9 +288,9 @@ export default function Home() {
           <SingleCarousel images={media} />
         </div>
       </section>
-      <section className='section mt-5 lg:mt-0 overflow-hidden w-[99vw]'>
-        <h2 className='text-[#3f3f3f] text-center font-semibold'>Volunteer</h2>
-        <p className='text-[#b3b3b3] leading-normal text-center mx-auto max-w-[794px] font-medium'>
+      <section className='section mt-5 lg:mt-0 overflow-hidden mx-auto w-[98.5vw]'>
+        {/* <h2 className='text-[#3f3f3f] text-center font-semibold'>Volunteer</h2> */}
+        {/* <p className='text-[#b3b3b3] leading-normal text-center mx-auto max-w-[794px] font-medium'>
           Explore the collaborative strength of our valued partners.
         </p>
         <div className='section  mt-[40px] pt-[33px] pb-[40px] min-h-[70vh] lg:min-h-screen bg-[#e9f4f6] '>
@@ -279,45 +306,23 @@ export default function Home() {
           <div className='flex  lg:hidden'>
             <SingleSpecialistCard images={special} />
           </div>
-        </div>
-        <div className='section  mt-[40px] pt-[33px] min-h-[70vh] lg:min-h-screen'>
+        </div> */}
+        <div className='section scrollbar-hide  mt-[40px] pt-[33px] min-h-[70vh] lg:min-h-screen'>
           <h2 className='text-[#011632]  text-center  font-normal'>
             See Our Hospitals
           </h2>
           <p className='text-[#3c4959] leading-[27.9px] text-center mx-auto max-w-[479px] font-normal'>
             We have the best network of hospitals and specialists on our team
           </p>
-          <div className='mt-[50px] overflow-scroll w-screen flex'>
-            {special.map((item: any, index: number) => (
-              <HospitalCard key={index.toString()} />
+          <div className='mt-[50px] scrollbar-hide overflow-scroll w-full flex'>
+            {specials.map((item: any, index: number) => (
+              <HospitalCard
+                name={item.name}
+                src={item.src}
+                field={item.field}
+                key={index.toString()}
+              />
             ))}
-          </div>
-        </div>
-      </section>
-      <section className='text-white space-y-5 flex flex-col justify-center items-center relative h-[80vh] w-full'>
-        <Image
-          alt='cold'
-          fill
-          className='object-cover -z-10 absolute'
-          src={"/cold.png"}
-        />
-        <h4 className='text-3xl lg:text-5xl font-semibold'>
-          Free Consultation
-        </h4>
-        <p className='text-[#b4b4b4] font-medium text-lg '>Apply for help</p>
-        <div className='bg-[#f4f4f4] relative top-10 flex flex-col items-center justify-around pt-[34px] pb-[48px] w-[80vw] h-[201px] rounded-[15.07px]'>
-          <p className='text-black text-center font-bold'>
-            Kindly fill the form below to book your free consultation
-          </p>
-          <div className=' flex  bg-white w-[90%] h-max py-1 border rounded-[15.07px] items-center'>
-            <input
-              type='text'
-              className='w-[85%] pl-3 h-full text-black  text-center text-sm outline-none mx-auto'
-              placeholder='Enter your email here'
-            />
-            <button className='bg-docBlue font-semibold rounded-[15.07px] px-[4vw] py-[1vh] text-white'>
-              Send
-            </button>
           </div>
         </div>
       </section>

@@ -1,7 +1,22 @@
 import MediaCard from "@/components/MediaCard";
 import React from "react";
 
-const med = [1, 2, 3, 4, 5, 6];
+const med = [
+  { name: "Blue Labs", desc: "A stethoscopic tour", src: "exam" },
+  {
+    name: "Examining tubes",
+    desc: "Examinig a microscopic tube",
+    src: "Examination",
+  },
+  {
+    name: "Hair Revitalization",
+    desc: "Bring back your lost hair",
+    src: "Afro",
+  },
+  { name: "Ify dancing", desc: "Member dancing with an x-ray", src: "ify" },
+  { name: "A group of girls", desc: "4 girls posing", src: "girls" },
+  { name: "VIP lounge", desc: "A VIP bed ", src: "vip" },
+];
 
 const Page = () => {
   return (
@@ -11,12 +26,17 @@ const Page = () => {
           See what we have done
         </h4>
         <p className='text-base lg:text-[20px] leading-[30px]'>
-          connecting doctors to patients, helping people needing procedures
+          In line with our vision and with your support, we accomplished these
         </p>
       </div>
       <div className='grid my-[50px] px-[2vw] lg:px-[70px] grid-cols-1 lg:grid-cols-3 gap-[72px]'>
         {med.map((item, index: number) => (
-          <MediaCard key={index.toString()} />
+          <MediaCard
+            name={item.name}
+            desc={item.desc}
+            src={item.src}
+            key={index.toString()}
+          />
         ))}
       </div>
     </div>

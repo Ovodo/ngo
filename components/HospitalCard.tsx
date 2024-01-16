@@ -4,17 +4,25 @@ import { Montserrat } from "next/font/google";
 import { FaArrowRight } from "react-icons/fa6";
 const font = Montserrat({ subsets: ["latin"] });
 
-const HospitalCard = () => {
+const HospitalCard = ({
+  name,
+  src,
+  field,
+}: {
+  name: string;
+  src: string;
+  field: string;
+}) => {
   return (
     <div className='mx-5' style={font.style}>
       <div className='min-h-[350px] relative min-w-[350px]'>
-        <Image src={"/hospital.svg"} fill alt='hospital' />
+        <Image src={src} fill alt='hospital' />
       </div>
 
       <div className='min-w-[350px] flex flex-col items-start space-y-5 h-auto p-[25px]'>
-        <div className='flex w-[300px]  mx-auto items-center justify-between'>
-          <h6 className='font-bold text-[#fc724d] text-[14px] tracking-[0.20px] leading-[24px] whitespace-nowrap'>
-            Top Hospital
+        <div className='flex w-[350px]   mx-auto items-center justify-between'>
+          <h6 className='font-bold  text-[#fc724d] text-[14px] tracking-[0.20px] leading-[24px] whitespace-nowrap'>
+            {name}
           </h6>
           <div className='inline-flex items-center gap-[5px] p-[5px] bg-darkBlue  rounded-[20px] overflow-hidden'>
             <Image alt='star' width={16} height={16} src={"/icons/star.svg"} />
@@ -23,7 +31,7 @@ const HospitalCard = () => {
             </p>
           </div>
         </div>
-        <p className='text-base font-bold text-black'>Emergency Case</p>
+        <p className='text-base font-bold text-black'>{field}</p>
         <p className='text-sm font-normal text-[#727272]'>
           We focus ongiving you the best procedures at teh best price
         </p>

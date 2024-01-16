@@ -32,14 +32,24 @@ body {
   /* overflow: hidden; */
 }
 
-.hide-scroll {
-  scrollbar-width: none; /* Firefox will use its default scrollbar style */
-  -ms-overflow-style: none; /* Hide scrollbar for Microsoft Edge */
-}
-.hide-scroll::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for WebKit-based browsers */
+/* This will hide the scrollbar for Chrome, Safari, etc. */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
+/* This will hide the scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+/* This will hide the scrollbar for Chrome, Safari, etc. */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* This will hide the scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
 h2 {
   font-size: clamp(24px, 4vw, 48px);
 }

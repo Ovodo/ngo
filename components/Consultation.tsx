@@ -9,25 +9,25 @@ const consultants = [
     name: `Dr. Harry Littleton`,
     field: "Neurologist",
     animation: "center",
-    src: "harry",
+    src: "nurse",
   },
   {
     name: `Dr. Robert Henry`,
     field: "Cardiologist",
     animation: "left",
-    src: "robert",
+    src: "fineboy",
   },
   {
     name: `Dr. Sajeev Kapoor`,
     field: "Child Specialist",
     animation: "left1",
-    src: "usman",
+    src: "male",
   },
   {
     name: `Dr. Sharina Khan`,
     field: "Gynaecologist",
     animation: "right1",
-    src: "khan",
+    src: "female",
   },
   //   {
   //     name: `Management Consultant with Distinction in Time Management (London Graduate School).`,
@@ -123,7 +123,7 @@ const Consultation = () => {
               </div>
             </div>
             <div className='relative w-[90%]  lg:w-[378px]  flex justify-center h-[249px] top-0 left-0 bg-[#2ca3fa] rounded-[26.06px]'>
-              <div className='absolute bottom-0 w-[298px] h-[293px]'>
+              <div className='absolute bottom-0 w-[220px] h-[299px]'>
                 <Image
                   src={`/docs/${comp.src}.png`}
                   alt='docs'
@@ -164,7 +164,7 @@ const Consultation = () => {
                   src={`/docs/${comp.src}.png`}
                   alt='docs'
                   fill
-                  className='object-cover'
+                  className='object-cover bord'
                 />
               </div>
             </div>

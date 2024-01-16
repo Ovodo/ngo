@@ -4,12 +4,14 @@ import Link from "next/link";
 import { BiMenu } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 const listStyle: string =
   "text-sm min-h-max hover:scale-110  leading-[16px] list relative cursor-pointer hover:opacity-60 hover:text-docBlue duration-200  flex flex-col items-center my-[14px] lg:mb-0 mt-[40px] lg:mt-0  lg:leading-[20px]  font-normal";
 
 const Navbar = () => {
   // --------------------------------------------VARIABLES
   const [isOpen, setIsOpen] = useState(false);
+  const router = usePathname();
 
   //-----------------------------------------------------------FUNCTIONS
   const toggleMenu = () => {
@@ -32,19 +34,39 @@ const Navbar = () => {
             : "translate-x-0 opacity-100 scale-100 z-10"
         }  h-[90vh] lg:h-full  duration-300 lg:translate-x-0  lg:opacity-100 transition-all ease-linear  lg:flex-row items-start justify-start lg:justify-between lg:items-center absolute lg:relative top-[10vh] lg:top-0 left-0 flex flex-col bg-white`}
       >
-        <li className={listStyle}>
-          <Link href={"/about"}>About us</Link>
+        <li
+          className={`${listStyle} ${
+            router.includes("/about") ? "text-docBlue" : ""
+          }`}
+        >
+          <Link href={"/"}>About us</Link>
         </li>
-        <li className={listStyle}>
+        <li
+          className={`${listStyle} ${
+            router.includes("/media") ? "text-docBlue" : ""
+          }`}
+        >
           <Link href={"/media"}>Media</Link>
         </li>
-        <li className={listStyle}>
-          <Link href={"/"}>Volunteer</Link>
+        <li
+          className={`${listStyle} ${
+            router.includes("/volunteer") ? "text-docBlue" : ""
+          }`}
+        >
+          <Link href={"/volunteer"}>Volunteer</Link>
         </li>
-        <li className={listStyle}>
-          <Link href={"/"}>Free Consultation</Link>
+        <li
+          className={`${listStyle} ${
+            router.includes("/consultation") ? "text-docBlue" : ""
+          }`}
+        >
+          <Link href={"/consultation"}>Free Consultation</Link>
         </li>
-        <li className={listStyle}>
+        <li
+          className={`${listStyle} ${
+            router.includes("/contact") ? "text-docBlue" : ""
+          }`}
+        >
           <Link href={"/contact"}>Contact us</Link>
         </li>
         <Link href={"/donate"}>
