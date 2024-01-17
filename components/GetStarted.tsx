@@ -37,22 +37,29 @@ const GetStarted = () => {
           <circle cx='12' cy='12' r='6' />
         </svg>
       </div> */}
-      <div className='px-5 '>
-        <h3 className='text-docBlue mb-1 animate-pulse font-semibold'>
-          Get Started
-        </h3>
-        <p className='break-all  whitespace-pre-wrap max-w-[500px] tracking-wide mb-3 text-docBlue'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi ullam,
-          explicabo voluptatem fugiat laboriosam delectus magnam iure error quo
-          impedit eligendi dolores voluptatibus dicta consequuntur ducimus.
-          Provident blanditiis odit quas?
-        </p>
-      </div>
-      <div className='min-w-[60%]  flex flex-col items-center justify-start'>
-        <GetStartedItem title='Free Consultation' />
-        <GetStartedItem title='Donate' />
-        <GetStartedItem title='Volunteer' />
-        <GetStartedItem title='Refer a patient' />
+
+      <div className='min-w-[100%]  flex flex-col items-center justify-start'>
+        <Link
+          className='w-full mx-auto flex justify-center'
+          href={"/consultation"}
+        >
+          <GetStartedItem title='Free Consultation' />
+        </Link>
+        <Link className='w-full mx-auto flex justify-center' href={"/donate"}>
+          <GetStartedItem title='Donate' />
+        </Link>
+        <Link
+          className='w-full mx-auto flex justify-center'
+          href={"/volunteer"}
+        >
+          <GetStartedItem title='Volunteer' />
+        </Link>
+        <Link
+          className='w-full mx-auto flex justify-center'
+          href={"/volunteer"}
+        >
+          <GetStartedItem title='Refer a patient' />
+        </Link>
       </div>
 
       {/* Right SVG with Circles */}

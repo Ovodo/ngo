@@ -16,7 +16,7 @@ const MediaCard = ({
         <Image
           src={`/media/${src}.png`}
           fill
-          className='object-cover'
+          className='object-cover hover:cursor-pointer hover:opacity-90'
           alt='image'
         />
       </div>

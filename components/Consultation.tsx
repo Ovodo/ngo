@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-// import DocsCard from "./docsCard";
 
 const consultants = [
   {
@@ -39,13 +38,6 @@ const Consultation = () => {
   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
   const [currentIndex, setCurrentIndex] = useState(2);
   const [awards, setAward] = useState(consultants);
-  // const [positions, setPositions] = useState([
-  //   "center",
-  //   "left1",
-  //   "left",
-  //   "right",
-  //   "right1",
-  // ]);
 
   const setIndexOnClick = (clickedIndex: number) => {
     const newIndexes = [...awards];
@@ -61,11 +53,11 @@ const Consultation = () => {
   };
 
   const imageVariants = {
-    center: { x: "0%", scale: 1, zIndex: 5 },
+    center: { x: "10%", scale: 1, zIndex: 5 },
     left1: { x: "-50%", scale: 0.7, zIndex: 3 },
-    left: { x: "-90%", scale: 0.5, zIndex: 2 },
+    left: { x: "-100%", scale: 0.5, zIndex: 2 },
     right: { x: "90%", scale: 0.5, zIndex: 1 },
-    right1: { x: "50%", scale: 0.7, zIndex: 3 },
+    right1: { x: "80%", scale: 0.7, zIndex: 3 },
   };
   const handleDragEnd = (event: any, info: { offset: { x: number } }) => {
     const swipeThreshold = 40;
@@ -101,7 +93,7 @@ const Consultation = () => {
   };
 
   return (
-    <div className='relative   bg-white  flex flex-col h-full'>
+    <div className='relative     flex flex-col h-full'>
       <div className='lg:flex items-center  h-screen justify-center hidden  min-h-max  relative'>
         {awards.map((comp, index) => (
           <motion.div
@@ -138,15 +130,13 @@ const Consultation = () => {
             <p className='p-3 text-2xl relative bottom-3 leading-none text-[#767676] font-medium'>
               {comp.field}
             </p>
-            <div className='border border-patientBlue flex items-center justify-center min-w-[332.25px] min-h-[65.14px] rounded-2xl'>
-              <p className=' font-medium text-center text-[#1a1b1d]'>
-                Book an Appointment
-              </p>
+            <div className='border border-patientBlue hover:cursor hover:bg-patientBlue text-[#1a1b1d] hover:cursor-pointer hover:scale-110 hover:text-white duration-150 flex items-center justify-center min-w-[332.25px] min-h-[65.14px] rounded-2xl'>
+              <p className=' font-medium text-center '>Book an Appointment</p>
             </div>
           </motion.div>
         ))}
       </div>
-      <div className='flex flex-row px-0 py-5  hide-scroll overflow-scroll   w-[100vmin] lg:hidden'>
+      <div className='flex flex-row px-0 py-5  scrollbar-hide overflow-scroll    w-[100vmin] lg:hidden'>
         {awards.map((comp, index) => (
           <motion.div
             key={index.toString()}
@@ -158,25 +148,25 @@ const Consultation = () => {
                 <p className='text-xs'>Availiable</p>
               </div>
             </div>
-            <div className='relative w-[90%]  lg:w-[378px]  flex justify-center h-[249px] top-0 left-0 bg-[#2ca3fa] rounded-[26.06px]'>
-              <div className='absolute bottom-0 w-[220px] h-[180px]'>
+            <div className='relative w-[90%]   flex justify-center h-[249px] top-0 left-0 bg-[#2ca3fa] rounded-[26.06px]'>
+              <div className='absolute bottom-0 w-[220px] h-[220px]'>
                 <Image
                   src={`/docs/${comp.src}.png`}
                   alt='docs'
                   fill
-                  className='object-cover bord'
+                  className='object-scale-down'
                 />
               </div>
             </div>
-            <p className='p-3 text-3xl leading-none text-[#3f3f3f] font-medium'>
+            <p className='p-3 text-xl leading-none whitespace-nowrap text-[#3f3f3f] font-medium'>
               {comp.name}
             </p>
-            <p className='p-3 text-2xl relative bottom-3 leading-none text-[#767676] font-medium'>
+            <p className='p-3 text-lg relative bottom-3 leading-none text-[#767676] font-medium'>
               {comp.field}
             </p>
-            {/* <div className='border border-patientBlue flex items-center justify-center min-w-[332px] min-h-[65.14px] rounded-2xl'>
-              <p className=' font-medium text-center text-[#1a1b1d]'>Book</p>
-            </div> */}
+            <div className='border border-patientBlue relative bottom-2 hover:cursor hover:bg-patientBlue text-[#1a1b1d] hover:cursor-pointer  hover:text-white duration-150 flex items-center justify-center min-w-[50%] min-h-[44.14px] rounded-2xl'>
+              <p className=' font-medium text-center '>Book</p>
+            </div>
           </motion.div>
         ))}
       </div>

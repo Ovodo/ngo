@@ -39,7 +39,7 @@ const Navbar = () => {
             router.includes("/about") ? "text-docBlue" : ""
           }`}
         >
-          <Link href={"/"}>About us</Link>
+          <Link href={"/about"}>About us</Link>
         </li>
         <li
           className={`${listStyle} ${

@@ -197,7 +197,7 @@ export default function Home() {
         <Link href={"/?started=true"} className=' '>
           <div className='absolute bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-7 py-3  shadow-md shadow-slate-700 justify-around space-x-5 rounded-lg text-white top-[50vh] lg:top-[60vh]  ml-2 lg:ml-16 z-10 flex items-center'>
             Get Involved
-            <FaArrowRightLong />
+            <FaArrowRightLong style={{ marginLeft: 10 }} />
           </div>
         </Link>
         <div className='w-[98.5vw] p-1 bg-gray-200 bg-opacity-50 h-max'>
@@ -252,9 +252,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      <section className='relative  section overflow-y-visible  lg:top-[100px] flex min-h-[70vh] lg:h-screen   flex-col justify-center items-center'>
-        <div className='absolute z-50 w-[70vw] h-[70vw] mx-auto rounded-full border-[6vw] border-opacity-10 border-docBlue' />
-        <div className='relative lg:bottom-[100px]  flex items-center justify-center w-full h-full'>
+      <section className='relative    section overflow-y-visible  flex min-h-[70vh] lg:h-[60vw]   flex-col justify-center items-center'>
+        <div className='absolute z-50 w-[60vw] h-[60vw] mx-auto rounded-full border-[5vw] border-opacity-10 border-docBlue' />
+        <div className=' flex items-center justify-center w-full h-full'>
           <div className='lg:absolute left-[5vw] top-[123px]'>
             <DonationsCard />
           </div>
@@ -263,7 +263,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className='section'>
+      <section className='section  flex flex-col py-10 items-center   bg-[#E9F4F6]'>
         <h2 className='text-[#3f3f3f] text-center font-semibold'>
           Free Consultation
         </h2>
@@ -272,7 +272,7 @@ export default function Home() {
           doctors.Meet skilled professionals committed to your well -being and
           personalized care.
         </p>
-        <div className='h-[70vh] lg:min-h-screen bg-transparent flex items-center justify-center pt-[11px]'>
+        <div className='h-[60vh] w-full   lg:min-h-screen bg-transparent flex items-center justify-center pt-[11px]'>
           <Consultation />
         </div>
       </section>
@@ -307,7 +307,7 @@ export default function Home() {
             <SingleSpecialistCard images={special} />
           </div>
         </div> */}
-        <div className='section scrollbar-hide  mt-[40px] pt-[33px] min-h-[70vh] lg:min-h-screen'>
+        <div className='scrollbar-hide pt-[33px] min-h-[70vh] lg:min-h-screen'>
           <h2 className='text-[#011632]  text-center  font-normal'>
             See Our Hospitals
           </h2>
@@ -326,6 +326,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className='flex flex-col items-center'>
+        <div className='inline-flex flex-col items-center gap-[8px] relative'>
+          <div className='relative w-fit mt-[-1.00px]  font-semibold text-[#3f3f3f] text-2xl lg:text-[47.8px] tracking-[0] leading-[normal]'>
+            See our collaborators
+          </div>
+          <p className='relative w-fit  font-medium text-[#b4b4b4] text-[18px] tracking-[0] leading-[normal]'>
+            These people help to keep us going.
+          </p>
+        </div>
+        <div className='w-full h-[12vh] lg:h-[202px] flex items-center justify-around lg:justify-between mt-[9vh] bg-[#f7f5ff]'>
+          {images.map((item, index) => {
+            return (
+              <div
+                className='relative w-[12vw] h-[80px]'
+                key={index.toString()}
+              >
+                <Image
+                  fill
+                  className='object-scale-down'
+                  src={`/patners/${item}.png`}
+                  alt='patner'
+                />
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </main>
   );
 }
+
+const images = ["sam", "snot", "ad", "pjc", "click", "tech"];

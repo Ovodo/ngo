@@ -32,7 +32,7 @@ const Page = () => {
           />
           <ContactDetails title='Address: 1 Road Street Lagos' imag='add.svg' />
         </div>
-        <div className='flex mt-10  lg:mt-0 flex-col items-start lg:items-end'>
+        <div className='flex mt-10  lg:mt-0 flex-col space-y-14 items-start lg:items-end'>
           <Link href={"/?started=true"} className=' '>
             <div className=' bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-7 py-3  shadow-md shadow-slate-700 justify-around space-x-5 rounded-lg text-white z-10 flex items-center'>
               Get Started
