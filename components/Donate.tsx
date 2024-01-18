@@ -8,50 +8,45 @@ const Donate = () => {
   return (
     <motion.div
       key={"modal"}
+      style={{
+        backgroundImage: ' url("/background.png")',
+        objectFit: "cover",
+      }}
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 1, scale: 1, x: "200%" }}
       transition={{ type: "spring", stiffness: 200, damping: 50 }}
-      className='bg-amber-100 area relative lg:items-start w-[90vw] h-[60vh] lg:w-[50vw]  flex flex-col lg:flex-row lg:justify-between lg:pl-5 lg:pr-10  border-docP border-[1px] border-opacity-30 rounded-lg  py-10'
+      className='relative  w-screen h-screen   flex flex-col  items-center justify-center space-y-16 lg:pl-5 lg:pr-10  border-docP border-[1px] border-opacity-30 rounded-lg'
     >
-      <ul className='circles absolute w-full h-full -z-10'>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-        <li className='rounded-full'></li>
-      </ul>
-      {/* Left SVG with Circles */}
-      {/* <div className='absolute top-0 left-0 w-6 h-full bg-blue-500 flex items-center justify-center'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-        >
-          <circle cx='12' cy='12' r='6' />
-        </svg>
-      </div> */}
-      <div className='px-5 '>
-        <h3 className='text-black mb-5  font-semibold'>Bank Transfer</h3>
-        <p className='break-all  whitespace-pre-wrap max-w-[500px] tracking-wide mb-3 text-black font-medium'>
-          Access Bank
-        </p>
-        <p className='break-all  whitespace-pre-wrap max-w-[500px] tracking-wide mb-3 text-black font-medium'>
-          Dona Life Foundation
-        </p>
-        <p className='break-all  whitespace-pre-wrap max-w-[500px] tracking-wide mb-3 text-black font-medium'>
-          0949483756
+      <div className='inline-flex flex-col  items-center gap-[10px] '>
+        <div className=' w-[359px] h-[56px] mt-[-1.00px] text-center self-center  font-bold text-white text-3xl lg:text-[48px] tracking-[0] leading-[52.3px] whitespace-nowrap'>
+          Bank Transfer
+        </div>
+        <p className=' lg:w-[686px] w-[90vw]  font-normal text-white text-lg lg:text-[20px] text-center tracking-[0] leading-[normal]'>
+          Kindly make your donations to the account details provided above.
+          Thank you for your donation!
         </p>
       </div>
+      <div className='w-[799px] scale-50 lg:scale-100 h-[210px]'>
+        <p className='w-[799px] font-normal text-white text-[40px] text-center tracking-[0] leading-[70px]'>
+          <span className='font-semibold'>Bank Name</span>
+          <span className='font-normal'>
+            : Access Bank Nigeria
+            <br />
+          </span>
+          <span className='font-semibold'>Account Name</span>
+          <span className='font-normal'>
+            : Dona Life Foundation
+            <br />
+          </span>
+          <span className='font-semibold'>Account Number</span>
+          <span className='font-normal'>: 0949483756</span>
+        </p>
+      </div>
+
       <Link
         href={"/donate"}
-        className='absolute top-5 text-3xl right-5 text-black'
+        className='absolute -top-7 hover:scale-110 duration-75 text-3xl right-5 text-white'
       >
         <MdClose />
       </Link>

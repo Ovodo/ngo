@@ -85,6 +85,13 @@ const Page = () => {
 
   return (
     <div className='w-full flex flex-col items-center mb-[20vh] justify-start h-full'>
+      <AnimatePresence mode='wait'>
+        {donate && (
+          <div className='fixed z-20 w-screen  top-[10vh] left-[50%] -translate-x-1/2'>
+            <Donate />
+          </div>
+        )}
+      </AnimatePresence>
       <div className='flex w-[90%]  mb-[4vw] mt-[5vw] items-start  flex-col'>
         <h2 className='text-docBlue    flex flex-col justify-start font-semibold '>
           We care
@@ -109,14 +116,6 @@ const Page = () => {
           </div>
         </div>
         <div className='w-full lg:w-[50%] relative mx-auto h-full flex flex-col lg:ml-32 justify-around items-center lg:items-start'>
-          <AnimatePresence mode='wait'>
-            {donate && (
-              <div className='absolute z-20  top-[2%] left-[50%] -translate-x-1/2'>
-                <Donate />
-              </div>
-            )}
-          </AnimatePresence>
-
           <h5
             id='donate'
             className='text-2xl font-medium text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'

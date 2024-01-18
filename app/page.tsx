@@ -166,7 +166,7 @@ export default function Home() {
       <section className='relative  section flex items-center' id='HERO'>
         <AnimatePresence mode='wait'>
           {started && (
-            <div className='fixed z-20 top-[12%] left-[50%] -translate-x-1/2'>
+            <div className='fixed z-20 top-[10vh] left-[50%] -translate-x-1/2'>
               <GetStarted />
             </div>
           )}
