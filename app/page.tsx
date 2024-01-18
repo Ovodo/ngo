@@ -31,13 +31,6 @@ const media = [
   "/media/girl.png",
   "/media/scan.svg",
 ];
-// const specials = [
-//   "/specialist/jim.png",
-//   "/specialist/carry.png",
-//   "/specialist/wade.png",
-//   "/specialist/jenny.png",
-//   "/specialist/jacob.png",
-// ];
 const special = [
   {
     name: `Jim Carry`,
@@ -117,7 +110,6 @@ export default function Home() {
   const { ref, inView } = useInView({ threshold: 0.4 });
   const animation = useAnimation();
   const animationImg = useAnimation();
-  const router = useRouter();
   const started = useSearchParams().get("started");
 
   useEffect(() => {
@@ -174,7 +166,7 @@ export default function Home() {
       <section className='relative  section flex items-center' id='HERO'>
         <AnimatePresence mode='wait'>
           {started && (
-            <div className='absolute z-20 top-[2%] left-[50%] -translate-x-1/2'>
+            <div className='fixed z-20 top-[12%] left-[50%] -translate-x-1/2'>
               <GetStarted />
             </div>
           )}
@@ -182,7 +174,7 @@ export default function Home() {
 
         <div
           id='HERO_TEXT'
-          className='absolute top-[20vh] z-10 ml-2 lg:ml-16 flex flex-col space-y-5 items-start'
+          className='absolute top-[20vh] z-10 ml-6 lg:ml-16 flex flex-col space-y-5 items-start'
         >
           <h2 className='text-docBlue flex flex-col font-semibold '>
             We Support
@@ -195,7 +187,7 @@ export default function Home() {
           </p>
         </div>
         <Link href={"/?started=true"} className=' '>
-          <div className='absolute bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-7 py-3  shadow-md shadow-slate-700 justify-around space-x-5 rounded-lg text-white top-[50vh] lg:top-[60vh]  ml-2 lg:ml-16 z-10 flex items-center'>
+          <div className='absolute bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-7 py-3  shadow-sm shadow-slate-700 justify-around space-x-5 rounded-lg text-white top-[50vh] lg:top-[60vh]  ml-6 lg:ml-16 z-10 flex items-center'>
             Get Involved
             <FaArrowRightLong style={{ marginLeft: 10 }} />
           </div>

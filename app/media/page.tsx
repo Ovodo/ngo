@@ -39,7 +39,8 @@ const Page = () => {
             exit={{ opacity: 1, scale: 1, x: "200%" }}
             transition={{ type: "spring", stiffness: 200, damping: 50 }}
             onClick={() => setShowImage(false)}
-            className='absolute bg-gray-300 z-20 flex items-center justify-center w-screen h-screen lg:h-full'
+            className='fixed top-0 left-0 right-0 bottom-0 z-20 flex items-center justify-center bg-gray-300'
+            // className='absolute bg-gray-300 z-20 flex items-center  justify-center w-screen h-screen lg:h-full'
           >
             <div className='flex flex-col w-max  items-start'>
               <div className='min-w-[80vw]  lg:min-w-[70vw] mb-[10px] min-h-[60vh] lg:min-h-[80vh] relative'>

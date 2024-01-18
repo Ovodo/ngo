@@ -1,10 +1,14 @@
+import Link from "next/link";
 import React from "react";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const GetStartedItem = ({
   title = "Free consultation",
+  button,
   description = "connecting doctors to patients, helping people needing procedures",
 }: {
   title: string;
+  button: string;
   description?: string;
 }) => {
   return (
@@ -13,12 +17,15 @@ const GetStartedItem = ({
         <h4 className='text-textAsh mb-3 font-semibold'>{title}</h4>
         <p className='mb-3 lg:mb-0 lg:w-[85%] '>{description}</p>
       </div>
-      <button className='w-[150px] hover:scale-110 hover:bg-docP duration-300 active:scale-90  text-center justify-center  hidden lg:flex h-max text-white py-2 rounded-[15px] bg-docBlue'>
-        Book a session
-      </button>
-      <button className='w-[100px] hover:scale-110 hover:bg-docP duration-300 active:scale-90 text-center justify-center  lg:hidden flex h-max text-white py-2 rounded-[15px] bg-docBlue'>
-        Book
-      </button>
+
+      {/* <div className='flex justify-center min-w-[200px] '> */}
+      <Link href={"/?started=true"} className=' '>
+        <div className='bg-docBlue hover:bg-docP lg:w-[290px] font-medium text-base hover:scale-110 active:scale-90 duration-200 cursor-pointer px-7 py-3  shadow-sm shadow-slate-700 justify-center rounded-lg text-white flex items-center'>
+          {button}
+          <FaArrowRightLong style={{ marginLeft: 10 }} />
+        </div>
+      </Link>
+      {/* </div> */}
     </div>
   );
 };

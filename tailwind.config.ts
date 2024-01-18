@@ -14,6 +14,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
+        // docBlue: "#1b5aa4ff",
         docBlue: "#2186FC",
         docBlack: "#404040",
         patientBlue: "#1B00EA",
@@ -21,6 +22,7 @@ const config: Config = {
         docP: "#4200FF",
         darkBlue: "rgba(38, 51, 93, 1)",
         textAsh: "#404040",
+        logoBlue: "#1b5aa4ff",
       },
     },
   },

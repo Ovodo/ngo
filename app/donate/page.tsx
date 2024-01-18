@@ -2,15 +2,14 @@
 
 import CheckWithText from "@/components/CheckWithText";
 import Donate from "@/components/Donate";
-import DonationsCard from "@/components/DonationsCard";
-import Footer from "@/components/Footer";
-import GetStarted from "@/components/GetStarted";
+import { useInView } from "react-intersection-observer";
+
 import Input from "@/components/Input";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 
@@ -19,9 +18,70 @@ const donors = [
   { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
   { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
 ];
+const initialInfo = [
+  { number: 0, targetNumber: 20, text: "Happy patients with our services" },
+  { number: 0, targetNumber: 225, text: "The best doctors we provide" },
+  { number: 0, targetNumber: 316, text: "Hospitals affiliate with us" },
+  { number: 0, targetNumber: 413, text: "Procedures completed" },
+];
+
+const incrementSpeed = 10; // milliseconds
 
 const Page = () => {
+  const [info, setInfo] = useState(initialInfo);
+  const { ref, inView } = useInView({ threshold: 0.4 });
+  const animation = useAnimation();
+  const animationImg = useAnimation();
   const donate = useSearchParams().get("donate");
+
+  useEffect(() => {
+    console.log("inView", inView);
+
+    if (!inView) {
+      animation.start({
+        x: -200,
+        opacity: 0,
+      });
+      animationImg.start({
+        x: +200,
+        height: 0,
+        opacity: 0,
+      });
+    } else {
+      animation.start({
+        x: 0,
+        opacity: 1,
+      });
+      animationImg.start({
+        x: 0,
+        height: 600,
+        opacity: 1,
+      });
+    }
+  }, [inView, animation, animationImg]);
+
+  useEffect(() => {
+    const incrementNumbers = () => {
+      setInfo((prevInfo) =>
+        prevInfo.map((item) => {
+          // Check if the number has reached its target
+          if (item.number >= item.targetNumber) {
+            return item; // Don't increment anymore
+          }
+          return {
+            ...item,
+            number: Math.min(item.number + 1, item.targetNumber), // Increment and clamp to target
+          };
+        })
+      );
+    };
+
+    const intervalId = setInterval(() => {
+      inView && incrementNumbers();
+    }, incrementSpeed); // Set increment interval
+
+    return () => clearInterval(intervalId); // Clear interval on unmount
+  }, [inView]);
 
   return (
     <div className='w-full flex flex-col items-center mb-[20vh] justify-start h-full'>
@@ -37,7 +97,7 @@ const Page = () => {
           medical procedures such as Dialysis and Surgeries
         </p>
       </div>
-      <div className='h-[850px] flex w-[90%] '>
+      <div className='section h-[850px] flex w-[90%] '>
         <div className='w-[40%] hidden lg:flex rounded-tl-2xl relative rounded-bl-2xl  h-full bg-docBlue'>
           <div className='w-[715px] absolute bottom-0 left-0 h-[881px]'>
             <Image
@@ -111,6 +171,54 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <section
+        ref={ref}
+        className='section overflow-hidden  lg:h-screen w-[90%]  flex flex-col lg:flex-row px-5 lg:px-10'
+        id='HOW_FAR'
+      >
+        <div className=' w-full lg:w-1/2  flex flex-col justify-between  h-[60vh] lg:h-[85vh]'>
+          <h2 className='font-'>Let&apos;s tell you how far we have come</h2>
+          <p className='lg:w-[70%]'>
+            We are pleased to tell you that we have catered to the needs of so
+            many world wide, here are our numbers
+          </p>
+          <div className='grid grid-cols-[1fr,1fr]'>
+            {info.map((item, index) => {
+              return (
+                <div key={index.toString()} className='space-y-1 mb-7'>
+                  <h3 className='text-2xl lg:text-4xl text-patientBlue'>{`${item.number}K+`}</h3>
+                  <p className='w-1/2'>{item.text}</p>
+                </div>
+              );
+            })}
+          </div>
+          <button className='py-3 px-7 bg-patientBlue max-w-max font-light  rounded-md text-white'>
+            {" "}
+            See More
+          </button>
+        </div>
+        <div className='h-full relative hidden lg:flex  w-full lg:w-1/2'>
+          <motion.div
+            animate={animationImg}
+            transition={{ type: "tween", duration: 1.5 }}
+            className='absolute right-0 w-[25vw] h-[80%]'
+          >
+            <Image
+              src={"/hospi.png"}
+              alt='hospi'
+              className='object-cover rounded-md'
+              fill
+            />
+          </motion.div>
+          <motion.div
+            animate={animation}
+            transition={{ type: "tween", duration: 1.5 }}
+            className='absolute left-20 bottom-0 w-[20vw] h-[60%]'
+          >
+            <Image src={"/hosp.png"} alt='hospi' className='' fill />
+          </motion.div>
+        </div>
+      </section>
       <div className='mt-20 w-full'>
         <div className='rounded-[20px] h-[459px] relative mx-auto  py-10 bg-white px-5 max-w-[95%] lg:min-w-[758px] '>
           <h3 className='font-bold text-2xl  mx-auto w-full text-center text-docBlack'>

@@ -5,6 +5,7 @@ import { BiMenu } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 const listStyle: string =
   "text-sm min-h-max hover:scale-110  leading-[16px] list relative cursor-pointer hover:opacity-60 hover:text-docBlue duration-200  flex flex-col items-center my-[14px] lg:mb-0 mt-[40px] lg:mt-0  lg:leading-[20px]  font-normal";
 
@@ -21,10 +22,16 @@ const Navbar = () => {
   //
   return (
     <div className='relative    shadow-sm w-full shadow-slate-300 z-20   flex items-center lg:justify-around bg-white h-[10vh] '>
-      <Link href={"/"}>
-        <h4 className='font-semibold ml-5 lg:ml-0 text-docBlue'>
+      <Link className='w-[250px] ml-2 lg:ml-0 h-[50px] relative' href={"/"}>
+        {/* <h4 className='font-semibold ml-5 lg:ml-0 text-docBlue'>
           Dona life <span className='text-black'>Foundation</span>
-        </h4>
+        </h4> */}
+        <Image
+          src={"/logo.png"}
+          className='object-scale-down'
+          alt='logo'
+          fill
+        />
       </Link>
       <ul
         onClick={() => toggleMenu()}
