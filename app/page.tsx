@@ -16,6 +16,7 @@ import Footer from "@/components/Footer";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import GetStarted from "@/components/GetStarted";
+import ProceduresCard from "@/components/ProceduresCard";
 
 const hero = [
   "/group3.jpg",
@@ -97,10 +98,10 @@ const specials = [
 ];
 
 const initialInfo = [
-  { number: 0, targetNumber: 20, text: "Happy patients with our services" },
-  { number: 0, targetNumber: 225, text: "The best doctors we provide" },
-  { number: 0, targetNumber: 316, text: "Hospitals affiliate with us" },
-  { number: 0, targetNumber: 413, text: "Procedures completed" },
+  { number: 0, targetNumber: 105, text: "Patients supported" },
+  { number: 0, targetNumber: 80, text: "Supporting volunteers" },
+  { number: 0, targetNumber: 20, text: "Hospitals affiliate with us" },
+  { number: 0, targetNumber: 105, text: "Procedures completed" },
 ];
 
 const incrementSpeed = 10; // milliseconds
@@ -177,13 +178,14 @@ export default function Home() {
           className='absolute top-[20vh] z-10 ml-6 lg:ml-16 flex flex-col space-y-5 items-start'
         >
           <h2 className='text-docBlue flex flex-col font-semibold '>
-            We Support
+            Help Support
             <span className='text-docBlack  p-[2px] whitespace-nowrap  mt-3 bg-teal-300 '>
-              Patients with procedures
+              Patients in critical need
             </span>
           </h2>
-          <p className='font-light p-[2px] w-[90%] lg:w-full text-white bg-docBlack '>
-            Connecting doctors to patients, helping people needing procedures
+          <p className='font-light p-[2px] w-[80%] lg:w-[70%] text-white bg-docBlack '>
+            We support critically ill and financially challenged patients that
+            need procedures such as DIALYSIS and SURGERIES
           </p>
         </div>
         <Link href={"/?started=true"} className=' '>
@@ -204,14 +206,13 @@ export default function Home() {
         <div className=' w-full lg:w-1/2  flex flex-col justify-between  h-[60vh] lg:h-[85vh]'>
           <h2 className='font-'>Let&apos;s tell you how far we have come</h2>
           <p className='lg:w-[70%]'>
-            We are pleased to tell you that we have catered to the needs of so
-            many world wide, here are our numbers
+            These are the numbers that tell our story
           </p>
           <div className='grid grid-cols-[1fr,1fr]'>
             {info.map((item, index) => {
               return (
                 <div key={index.toString()} className='space-y-1 mb-7'>
-                  <h3 className='text-2xl lg:text-4xl text-patientBlue'>{`${item.number}K+`}</h3>
+                  <h3 className='text-2xl lg:text-4xl text-patientBlue'>{`${item.number}+`}</h3>
                   <p className='w-1/2'>{item.text}</p>
                 </div>
               );
@@ -244,14 +245,14 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      <section className='relative    section overflow-y-visible  flex min-h-[70vh] lg:h-[60vw]   flex-col justify-center items-center'>
+      <section className='relative  section overflow-y-visible  flex min-h-[70vh] lg:h-[60vw]   flex-col justify-center items-center'>
         <div className='absolute z-50 w-[60vw] h-[60vw] mx-auto rounded-full border-[5vw] border-opacity-10 border-docBlue' />
-        <div className=' flex items-center justify-center w-full h-full'>
-          <div className='lg:absolute left-[5vw] top-[123px]'>
+        <div className=' flex flex-col lg:flex-row items-center justify-center w-full h-full'>
+          <div className='lg:absolute mb-14 lg:mb-0 left-[5vw] top-[123px]'>
             <DonationsCard />
           </div>
-          <div className='hidden left-[40vw] top-[315px] absolute lg:flex'>
-            <DonationsCard />
+          <div className=' left-[40vw] top-[315px] lg:absolute lg:flex'>
+            <ProceduresCard width='lg:min-w-[758px]' />
           </div>
         </div>
       </section>

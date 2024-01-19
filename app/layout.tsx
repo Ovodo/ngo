@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <Navbar />
-        <main className='flex min-h-screen  [background:linear-gradiet(180deg,rgb(255,247.03,238)_0%,rgba(174.45,174.45,174.45,0)_100%)] flex-col items-center justify-start '>
+        <main className='flex [background:linear-gradiet(180deg,rgb(255,247.03,238)_0%,rgba(174.45,174.45,174.45,0)_100%)] flex-col items-center justify-start '>
           {children}
         </main>
         <Footer />

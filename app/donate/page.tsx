@@ -12,19 +12,20 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
+import ProceduresCard from "@/components/ProceduresCard";
 
 const donors = [
   { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
   { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
   { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
 ];
-const initialInfo = [
-  { number: 0, targetNumber: 20, text: "Happy patients with our services" },
-  { number: 0, targetNumber: 225, text: "The best doctors we provide" },
-  { number: 0, targetNumber: 316, text: "Hospitals affiliate with us" },
-  { number: 0, targetNumber: 413, text: "Procedures completed" },
-];
 
+const initialInfo = [
+  { number: 0, targetNumber: 105, text: "Patients supported" },
+  { number: 0, targetNumber: 80, text: "Supporting volunteers" },
+  { number: 0, targetNumber: 20, text: "Hospitals affiliate with us" },
+  { number: 0, targetNumber: 105, text: "Procedures completed" },
+];
 const incrementSpeed = 10; // milliseconds
 
 const Page = () => {
@@ -104,7 +105,7 @@ const Page = () => {
           medical procedures such as Dialysis and Surgeries
         </p>
       </div>
-      <div className='section h-[850px] flex w-[90%] '>
+      <div className='section h-[450px] lg:h-[850px] flex w-[90%] '>
         <div className='w-[40%] hidden lg:flex rounded-tl-2xl relative rounded-bl-2xl  h-full bg-docBlue'>
           <div className='w-[715px] absolute bottom-0 left-0 h-[881px]'>
             <Image
@@ -115,58 +116,28 @@ const Page = () => {
             />
           </div>
         </div>
-        <div className='w-full lg:w-[50%] relative mx-auto h-full flex flex-col lg:ml-32 justify-around items-center lg:items-start'>
+        <div className='w-full lg:w-[50%] relative mx-auto h-full flex flex-col lg:ml-32 justify-center space-y-10 items-center'>
           <h5
             id='donate'
-            className='text-2xl font-medium text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'
+            className='text-2xl font-medium  absolute top-[5vh] text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'
           >
             Donate
           </h5>
-          <div className='flex flex-col lg:flex-row '>
-            <Input
-              width='w-[298px] mb-10 lg:mb-0 lg:mr-20'
-              holder='Your First Name'
-              title='First Name'
-            />
-            <Input
-              width='w-[298px]'
-              holder='Your Last Name'
-              title='Last Name'
-            />
-          </div>
-          <div className='self-start w-full'>
-            <Input
-              width='w-[298px] lg:w-[44vw] flex self-start'
-              title='Email Address'
-              holder='Enter your email address'
-            />
-          </div>
-          <div className='self-start w-full'>
-            <Input
-              width='w-[298px] lg:w-[44vw] flex self-start'
-              title='Description (Optional)'
-              holder='Brief Description'
-            />
-          </div>
-          <CheckWithText
-            style=''
-            text='I accept all'
-            cText='terms and conditions'
-          />
-          <Link
-            href={"?donate=true"}
-            className='max-w-[25vw]  lg:max-w-[10vw]   bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-around rounded-lg text-white   hover:ml-3  z-10 flex items-center'
-          >
-            Donate
-            <FaArrowRightLong style={{ marginLeft: 10 }} />
-          </Link>
-          <CheckWithText style='' text='Donate as' cText='annonymous' />
-          <div className='w-[232px] h-[48px] '>
-            <p className='w-[232px] font-medium text-transparent text-[16px] tracking-[0] leading-[normal]'>
-              <span className='text-[#3f3f3f]'>Don’t want to reveal your</span>
-              <span className='text-[#2086fb]'> identity?&nbsp;&nbsp;</span>
-              <span className='text-black'>tick the box above</span>
+          <div className='space-y-5 relative lg:bottom-[20vh] flex flex-col items-center'>
+            <p className='font-medium text-sm text-[#606060] lg:text-lg'>
+              Help support the needy
             </p>
+            <p className='font-medium text-sm text-center text-[#606060] lg:text-lg'>
+              Click the button below to fill in your details and make
+              contributions
+            </p>
+            <Link
+              href={"?donate=true"}
+              className='max-w-[25vw]  lg:max-w-[10vw] mt-10   bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-around rounded-lg text-white   hover:ml-3  z-10 flex items-center'
+            >
+              Donate
+              <FaArrowRightLong style={{ marginLeft: 10 }} />
+            </Link>
           </div>
         </div>
       </div>
@@ -178,23 +149,18 @@ const Page = () => {
         <div className=' w-full lg:w-1/2  flex flex-col justify-between  h-[60vh] lg:h-[85vh]'>
           <h2 className='font-'>Let&apos;s tell you how far we have come</h2>
           <p className='lg:w-[70%]'>
-            We are pleased to tell you that we have catered to the needs of so
-            many world wide, here are our numbers
+            These are the numbers that tell our story
           </p>
           <div className='grid grid-cols-[1fr,1fr]'>
             {info.map((item, index) => {
               return (
                 <div key={index.toString()} className='space-y-1 mb-7'>
-                  <h3 className='text-2xl lg:text-4xl text-patientBlue'>{`${item.number}K+`}</h3>
+                  <h3 className='text-2xl lg:text-4xl text-patientBlue'>{`${item.number}+`}</h3>
                   <p className='w-1/2'>{item.text}</p>
                 </div>
               );
             })}
           </div>
-          <button className='py-3 px-7 bg-patientBlue max-w-max font-light  rounded-md text-white'>
-            {" "}
-            See More
-          </button>
         </div>
         <div className='h-full relative hidden lg:flex  w-full lg:w-1/2'>
           <motion.div
@@ -253,6 +219,7 @@ const Page = () => {
           })}
         </div>
       </div>
+      <ProceduresCard width='lg:min-w-[90%]' />
     </div>
   );
 };

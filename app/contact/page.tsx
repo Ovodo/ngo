@@ -1,12 +1,26 @@
+"use client";
+
 import ContactDetails from "@/components/ContactDetails";
+import GetStarted from "@/components/GetStarted";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const Page = () => {
+  const started = useSearchParams().get("started");
+
   return (
-    <div className='flex w-full lg:px-[99px] flex-col h-[120vh] px-[10px] lg:h-[180vh] justify-around'>
+    <div className='flex  w-full lg:px-[99px] flex-col h-[120vh] px-[10px] lg:h-[180vh] justify-around'>
+      <AnimatePresence mode='wait'>
+        {started && (
+          <div className='fixed z-20 top-[10vh] left-[50%] -translate-x-1/2'>
+            <GetStarted />
+          </div>
+        )}
+      </AnimatePresence>
       <div className='lg:w-[639px]'>
         <h4 className='text-[#404040] font-semibold text-[32px] lg:text-[64px] leading-[69.76px]'>
           Let us get in touch
@@ -33,10 +47,10 @@ const Page = () => {
           <ContactDetails title='Address: 1 Road Street Lagos' imag='add.svg' />
         </div>
         <div className='flex mt-10  lg:mt-0 flex-col space-y-14 items-start lg:items-end'>
-          <Link href={"/?started=true"} className=' '>
+          <Link href={"?started=true"} className=' '>
             <div className=' bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-7 py-3  shadow-md shadow-slate-700 justify-around space-x-5 rounded-lg text-white z-10 flex items-center'>
               Get Started
-              <FaArrowRightLong />
+              <FaArrowRightLong style={{ marginLeft: 5 }} />
             </div>
           </Link>
           <p className=' font-medium mt-5 text-[#3f3f3f] text-base lg:text-[20px] tracking-[0] leading-[normal]'>

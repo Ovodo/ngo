@@ -7,7 +7,7 @@ const Footer = () => {
     <div className='h-[400px] sm:h-[30vh] lg:h-[450px] justify-between flex-col sm:flex-row py-[40px] lg:py-[100px] px-[20px] lg:px-[125px] text-white w-full bg-docBlue flex'>
       <div className='h-full sm:w-[200px] mb-10 flex flex-col justify-start'>
         <h4 className='font-normal lg:whitespace-nowrap  mb-10 text-[32px] '>
-          Dona life Foundation
+          Dona care Foundation
         </h4>
         <div className='font-light space-y-3'>
           <p className='font-normal'>Contact</p>

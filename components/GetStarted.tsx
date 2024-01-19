@@ -47,22 +47,38 @@ const GetStarted = () => {
           className='w-full mx-auto flex justify-center'
           href={"/consultation"}
         >
-          <GetStartedItem button='Book a session' title='Free Consultation' />
+          <GetStartedItem
+            description='Get in touch with world class medical specialists from across the globe'
+            button='Book a session'
+            title='Free Consultation'
+          />
         </Link>
         <Link className='w-full mx-auto flex justify-center' href={"/donate"}>
-          <GetStartedItem button='Donate' title='Donate' />
+          <GetStartedItem
+            description='Your financial contribution will expand our activities and impact more lives '
+            button='Donate'
+            title='Donate'
+          />
         </Link>
         <Link
           className='w-full mx-auto flex justify-center'
           href={"/volunteer"}
         >
-          <GetStartedItem button='Become a volunteer' title='Volunteer' />
+          <GetStartedItem
+            description='We welcome anyone willing to offer their time, skills or medical facilities'
+            button='Become a volunteer'
+            title='Volunteer'
+          />
         </Link>
         <Link
           className='w-full mx-auto flex justify-center'
           href={"/volunteer"}
         >
-          <GetStartedItem button='Refer someone' title='Refer a patient' />
+          <GetStartedItem
+            description='Do you know an indigent patient? Please let us know'
+            button='Refer someone'
+            title='Refer a patient'
+          />
         </Link>
       </div>
       <Link
