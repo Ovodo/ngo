@@ -26,11 +26,13 @@ const hero = [
   "/scope.svg",
 ];
 const media = [
-  "/media/gloves.svg",
-  "/media/hallway.svg",
-  "/media/bed.svg",
-  "/media/girl.png",
-  "/media/scan.svg",
+  "/outreach/three_doc.jpg",
+  "/outreach/two_men.jpg",
+  "/outreach/team.jpg",
+  "/outreach/two_men.jpg",
+  "/outreach/fit.jpg",
+  "/outreach/team2.jpg",
+  "/outreach/vac.jpg",
 ];
 const special = [
   {
@@ -66,45 +68,46 @@ const special = [
 ];
 const specials = [
   {
-    name: `Eko Hospital`,
+    name: `Anna Maria Hospital`,
     field: "General Health",
     animation: "center",
-    src: "/hall.png",
+    link: "https://annamariahospital.com/",
+    src: "/patners/maria.jpg",
   },
   {
-    name: `First Consultants Medical Centre`,
+    name: `Evercare Hospital`,
     field: "Surgery",
     animation: "left",
+    link: "https://www.evercare.ng/",
     src: "/green_bed.png",
   },
   {
-    name: `St. Nicholas hospital`,
+    name: `LASUTH`,
     field: "Child health",
     animation: "left1",
-    src: "/machine.png",
+    link: "https://www.lasuth.org.ng/",
+    src: "/patners/lasuth.jpg",
   },
-  {
-    name: `Lagoon Hospital`,
-    field: "Women Fertility",
-    animation: "right1",
-    src: "/drill.png",
-  },
-  {
-    name: `Reddington Hospital`,
-    field: "Orthopedics",
-    animation: "center",
-    src: "/hospital.svg",
-  },
+  // {
+  //   name: `Lagoon Hospital`,
+  //   field: "Women Fertility",
+  //   animation: "right1",
+  //   src: "/drill.png",
+  // },
+  // {
+  //   name: `Reddington Hospital`,
+  //   field: "Orthopedics",
+  //   animation: "center",
+  //   src: "/hospital.svg",
+  // },
 ];
-
 const initialInfo = [
-  { number: 0, targetNumber: 105, text: "Patients supported" },
-  { number: 0, targetNumber: 80, text: "Supporting volunteers" },
-  { number: 0, targetNumber: 20, text: "Hospitals affiliate with us" },
-  { number: 0, targetNumber: 105, text: "Procedures completed" },
+  { number: 0, targetNumber: 25, text: "Patients supported" },
+  { number: 0, targetNumber: 5, text: "Supporting volunteers" },
+  { number: 0, targetNumber: 3, text: "Hospitals affiliate with us" },
+  { number: 0, targetNumber: 4, text: "Procedures completed" },
 ];
-
-const incrementSpeed = 10; // milliseconds
+const incrementSpeed = 100; // milliseconds
 
 export default function Home() {
   const [info, setInfo] = useState(initialInfo);
@@ -227,22 +230,22 @@ export default function Home() {
           <motion.div
             animate={animationImg}
             transition={{ type: "tween", duration: 1.5 }}
-            className='absolute right-0 w-[25vw] h-[80%]'
+            className='absolute right-[10vw] w-[25vw] h-[80%]'
           >
             <Image
-              src={"/hospi.png"}
+              src={"/outreach/building.jpg"}
               alt='hospi'
               className='object-cover rounded-md'
               fill
             />
           </motion.div>
-          <motion.div
+          {/* <motion.div
             animate={animation}
             transition={{ type: "tween", duration: 1.5 }}
             className='absolute left-20 bottom-0 w-[20vw] h-[60%]'
           >
             <Image src={"/hosp.png"} alt='hospi' className='' fill />
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
       <section className='relative  section overflow-y-visible  flex min-h-[70vh] lg:h-[60vw]   flex-col justify-center items-center'>
@@ -310,6 +313,7 @@ export default function Home() {
           <div className='mt-[50px] scrollbar-hide overflow-scroll w-full flex'>
             {specials.map((item: any, index: number) => (
               <HospitalCard
+                link={item.link}
                 name={item.name}
                 src={item.src}
                 field={item.field}

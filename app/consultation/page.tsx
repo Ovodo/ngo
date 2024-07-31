@@ -7,28 +7,28 @@ import React, { useState } from "react";
 
 const consultants = [
   {
-    name: `Dr. Harry Littleton`,
+    name: `Dr. Emeka Onyia`,
     field: "Neurologist",
     animation: "center",
     src: "nurse",
     bio: "Specialist in taking care of the needy",
   },
   {
-    name: `Dr. Robert Henry`,
+    name: `Dr. Victor Ndukwe`,
     field: "Cardiologist",
     animation: "left",
     src: "fineboy",
     bio: "Specialist in taking care of the needy",
   },
   {
-    name: `Dr. Sajeev Kapoor`,
+    name: `Dr. Chima Dubem`,
     field: "Child Specialist",
     animation: "left1",
     src: "male",
     bio: "Specialist in taking care of the needy",
   },
   {
-    name: `Dr. Sharina Khan`,
+    name: `Dr. Joseph  Khan`,
     field: "Gynaecologist",
     animation: "right1",
     src: "female",

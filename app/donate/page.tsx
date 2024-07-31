@@ -13,27 +13,52 @@ import React, { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import ProceduresCard from "@/components/ProceduresCard";
+import { usePaystackPayment } from "react-paystack";
 
 const donors = [
-  { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
-  { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
-  { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
+  { name: "Victor Ndukwe", amount: "#100,000", date: "03/24" },
+  { name: "Emeka Onyia", amount: "#100,000", date: "03/24" },
+  { name: "Chima Dubem", amount: "#60,000", date: "03/24" },
 ];
 
 const initialInfo = [
-  { number: 0, targetNumber: 105, text: "Patients supported" },
-  { number: 0, targetNumber: 80, text: "Supporting volunteers" },
-  { number: 0, targetNumber: 20, text: "Hospitals affiliate with us" },
-  { number: 0, targetNumber: 105, text: "Procedures completed" },
+  { number: 0, targetNumber: 25, text: "Patients supported" },
+  { number: 0, targetNumber: 5, text: "Supporting volunteers" },
+  { number: 0, targetNumber: 3, text: "Hospitals affiliate with us" },
+  { number: 0, targetNumber: 4, text: "Procedures completed" },
 ];
-const incrementSpeed = 10; // milliseconds
+const incrementSpeed = 100; // milliseconds
 
 const Page = () => {
   const [info, setInfo] = useState(initialInfo);
   const { ref, inView } = useInView({ threshold: 0.4 });
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
+  const [amount, setAmount] = useState(0);
   const animation = useAnimation();
   const animationImg = useAnimation();
   const donate = useSearchParams().get("donate");
+
+  const config = {
+    reference: new Date().getTime().toString(),
+    email,
+    amount: amount * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: "pk_test_0c16a74819c3e66e2d1da2404852fa613290ce9f",
+  };
+
+  // you can call this function anything
+  const onSuccess = (reference: any) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    console.log(reference);
+  };
+
+  // you can call this function anything
+  const onClose = (reference: any) => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log("closed");
+  };
+  const initializePayment = usePaystackPayment(config);
 
   useEffect(() => {
     console.log("inView", inView);
@@ -119,26 +144,42 @@ const Page = () => {
         <div className='w-full lg:w-[50%] relative mx-auto h-full flex flex-col lg:ml-32 justify-center space-y-10 items-center'>
           <h5
             id='donate'
-            className='text-2xl font-medium  absolute top-[5vh] text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'
+            className='text-2xl font-medium   text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'
           >
             Donate
           </h5>
-          <div className='space-y-5 relative lg:bottom-[20vh] flex flex-col items-center'>
-            <p className='font-medium text-sm text-[#606060] lg:text-lg'>
-              Help support the needy
-            </p>
-            <p className='font-medium text-sm text-center text-[#606060] lg:text-lg'>
-              Click the button below to fill in your details and make
-              contributions
-            </p>
-            <Link
-              href={"?donate=true"}
-              className='max-w-[25vw]  lg:max-w-[10vw] mt-10   bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-around rounded-lg text-white   hover:ml-3  z-10 flex items-center'
-            >
-              Donate
-              <FaArrowRightLong style={{ marginLeft: 10 }} />
-            </Link>
+          <div className='space-y-5  w-full'>
+            <Input
+              val={fullName}
+              setValue={setFullName}
+              title='Full Name'
+              holder='John Doe'
+              width='w-full'
+            />
+            <Input
+              val={email}
+              setValue={setEmail}
+              title='Email Address'
+              holder='johndoe@outlook.com'
+              width='w-full'
+            />
+            <Input
+              val={amount}
+              setValue={setAmount}
+              title='Amount in Naira'
+              holder='100'
+              width='w-full'
+            />
           </div>
+          <button
+            onClick={() => {
+              initializePayment({ onSuccess, onClose });
+            }}
+            className='max-w-[25vw]  lg:max-w-[15vw] mt-[5vh] mx-auto  bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-center rounded-lg text-white    z-10 flex items-center'
+          >
+            Donate
+            <FaArrowRightLong style={{ marginLeft: 10 }} />
+          </button>
         </div>
       </div>
       <section

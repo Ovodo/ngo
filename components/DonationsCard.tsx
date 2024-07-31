@@ -2,9 +2,9 @@ import React from "react";
 import { TiTick } from "react-icons/ti";
 
 const donors = [
-  { name: "Cristiano Ronaldo", amount: "$10,000", date: "01/27" },
-  { name: "Elon Musk", amount: "$10,000", date: "01/27" },
-  { name: "Uche Livingstone", amount: "$10,000", date: "01/27" },
+  { name: "Victor Ndukwe", amount: "#100,000", date: "03/24" },
+  { name: "Emeka Onyia", amount: "#100,000", date: "03/24" },
+  { name: "Chima Dubem", amount: "#60,000", date: "03/24" },
 ];
 
 const DonationsCard = () => {

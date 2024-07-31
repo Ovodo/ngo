@@ -1,13 +1,58 @@
 "use client";
 
+import Input from "@/components/Input";
+import Sel from "@/components/Sel";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import axios from "axios";
+import { baseUrl } from "@/config";
+import toast from "react-hot-toast";
+import Loader from "@/components/Loader";
 
 const Page = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
+  const [volunteer, setVolunteer] = useState("Specialist");
+  const [success, setSuccess] = useState<null | boolean>(null);
+  const [response, setResponse] = useState<null | string>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const sendDetails = async () => {
+    setIsLoading(true);
+    const details = { name: fullName, email, phone: number, volunteer };
+
+    try {
+      const res = await axios.post(`${baseUrl}/api/volunteer`, details);
+      if (res.status === 200) {
+        toast.success(res.data.message);
+        setFullName("");
+        setEmail("");
+        setNumber("");
+      }
+      setIsLoading(false);
+    } catch (error: any) {
+      console.log(error);
+
+      toast.error(error.response.data.message);
+      setFullName("");
+      setEmail("");
+      setNumber("");
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className='w-full flex   flex-col items-center mb-[20vh] justify-start h-full'>
+      {isLoading && (
+        <div className='w-screen h-screen fixed flex items-center justify-center top-0 bg-slate-900/90 z-50'>
+          {/* <div className='w-[20vw] h-[20vw] flex flex-col items-center justify-center bg-transparent rounded-lg'> */}
+          <Loader />
+          {/* </div> */}
+        </div>
+      )}
       <div className='flex w-[90%]  mb-[4vw] mt-[5vw] items-start  flex-col'>
         <h2 className='text-docBlue    flex flex-col justify-start font-semibold '>
           We care
@@ -31,29 +76,50 @@ const Page = () => {
             />
           </div>
         </div>
-        <div className='w-full lg:w-[50%] relative mx-auto h-[100%] flex flex-col lg:ml-32 justify-around items-center'>
+        <div className='w-full lg:w-[50%] relative mx-auto h-[100%] flex flex-col lg:ml-32 justify-aroundv items-center'>
           <h5
             id='donate'
-            className='text-2xl font-medium text-[#3f3f3f] text-[38.7px] tracking-[0] leading-[normal] self-center'
+            className='text-2xl font-medium text-[#3f3f3f] lg:text-[38.7px] tracking-[0] leading-[normal] self-center'
           >
             Volunteer
           </h5>
-          <div className='space-y-5'>
-            <p className='font-medium text-sm text-[#606060] lg:text-lg'>
-              Want to volunteer your services or hospital??
-            </p>
-            <p className='font-medium text-sm text-[#606060] lg:text-lg'>
-              Click the button below to fill in a quick form.
-            </p>
+          <div className='space-y-5  w-full'>
+            <Input
+              val={fullName}
+              setValue={setFullName}
+              title='Full Name'
+              holder='John Doe'
+              width='w-full'
+            />
+            <Input
+              val={email}
+              setValue={setEmail}
+              title='Email Address'
+              holder='johndoe@outlook.com'
+              width='w-full'
+            />
+            <Input
+              val={number}
+              setValue={setNumber}
+              title='Phone No'
+              holder='2348181983526'
+              width='w-full'
+            />
+            <Sel
+              value={volunteer}
+              setValue={setVolunteer}
+              title='Volunteer as'
+              width='w-full'
+              options={["Hospital", "Specialist", "Patner"]}
+            />
           </div>
-
-          <Link
-            href={"?donate=true"}
-            className='max-w-[25vw]  lg:max-w-[15vw]   bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-around rounded-lg text-white   hover:ml-3  z-10 flex items-center'
+          <button
+            onClick={sendDetails}
+            className='max-w-[25vw]  lg:max-w-[15vw] mt-[5vh] mx-auto  bg-docBlue hover:bg-docP hover:scale-110 active:scale-90 duration-200 cursor-pointer px-2 lg:px-7 py-3  shadow-md shadow-slate-700 justify-center rounded-lg text-white    z-10 flex items-center'
           >
             Volunteer
             <FaArrowRightLong style={{ marginLeft: 10 }} />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

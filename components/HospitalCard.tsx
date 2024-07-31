@@ -2,21 +2,24 @@ import Image from "next/image";
 import React from "react";
 import { Montserrat } from "next/font/google";
 import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link";
 const font = Montserrat({ subsets: ["latin"] });
 
 const HospitalCard = ({
   name,
   src,
   field,
+  link,
 }: {
   name: string;
   src: string;
   field: string;
+  link: string;
 }) => {
   return (
     <div className='mx-5' style={font.style}>
       <div className='min-h-[350px] relative min-w-[350px]'>
-        <Image src={src} fill alt='hospital' />
+        <Image src={src} className='object-cover' fill alt='hospital' />
       </div>
 
       <div className='min-w-[350px] flex flex-col items-start space-y-5 h-auto p-[25px]'>
@@ -35,10 +38,13 @@ const HospitalCard = ({
         <p className='text-sm font-normal text-[#727272]'>
           We focus ongiving you the best procedures at teh best price
         </p>
-        <div className='border-2 gap-[10px] text-docBlue inline-flex rounded-[37px] border-docBlue py-[10px] px-[20px] '>
+        <Link
+          href={link}
+          className='border-2 gap-[10px] text-docBlue inline-flex rounded-[37px] border-docBlue py-[10px] px-[20px] '
+        >
           <p className='font-bold text-sm'>Learn More</p>
           <Image src={"/icons/arr.svg"} width={9.14} height={16} alt='arrow' />
-        </div>
+        </Link>
       </div>
     </div>
   );

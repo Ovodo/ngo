@@ -21,17 +21,15 @@ const Navbar = () => {
 
   //
   return (
-    <div className='relative    shadow-sm w-full shadow-slate-300 z-20   flex items-center lg:justify-around bg-white h-[10vh] '>
-      <Link className='w-[250px] ml-2 lg:ml-0 h-[50px] relative' href={"/"}>
+    <div className='relative     shadow-sm w-full shadow-slate-300 z-20   flex items-center lg:justify-between pr-[3vw] bg-white h-[10vh] '>
+      <Link
+        className='w-[200px]  lg:ml-0 h-[70px] relative right-3 lg:right-0 '
+        href={"/"}
+      >
         {/* <h4 className='font-semibold ml-5 lg:ml-0 text-docBlue'>
           Dona life <span className='text-black'>Foundation</span>
         </h4> */}
-        <Image
-          src={"/logo.png"}
-          className='object-scale-down'
-          alt='logo'
-          fill
-        />
+        <Image src={"/dona.png"} className='object-cover' alt='logo' fill />
       </Link>
       <ul
         onClick={() => toggleMenu()}

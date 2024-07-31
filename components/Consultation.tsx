@@ -5,25 +5,25 @@ import Image from "next/image";
 
 const consultants = [
   {
-    name: `Dr. Harry Littleton`,
+    name: `Dr. Emeka Onyia`,
     field: "Neurologist",
     animation: "center",
     src: "nurse",
   },
   {
-    name: `Dr. Robert Henry`,
+    name: `Dr. Chima Dubem`,
     field: "Cardiologist",
     animation: "left",
     src: "fineboy",
   },
   {
-    name: `Dr. Sajeev Kapoor`,
+    name: `Dr. Lembe Precious`,
     field: "Child Specialist",
     animation: "left1",
     src: "male",
   },
   {
-    name: `Dr. Sharina Khan`,
+    name: `Dr. Victor Ndukwe`,
     field: "Gynaecologist",
     animation: "right1",
     src: "female",

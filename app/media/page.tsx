@@ -5,20 +5,30 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const med = [
-  { name: "Blue Labs", desc: "A stethoscopic tour", src: "exam" },
+  { name: "Outreach", desc: "General Vaccination", src: "/vac.jpg" },
   {
-    name: "Examining tubes",
-    desc: "Examinig a microscopic tube",
-    src: "Examination",
+    name: "Outreach",
+    desc: "Fitness Training",
+    src: "/fit.jpg",
   },
   {
-    name: "Hair Revitalization",
-    desc: "Bring back your lost hair",
-    src: "Afro",
+    name: "Outreach",
+    desc: "Fitness Training",
+    src: "/fit2.mp4",
   },
-  { name: "Ify dancing", desc: "Member dancing with an x-ray", src: "ify" },
-  { name: "A group of girls", desc: "4 girls posing", src: "girls" },
-  { name: "VIP lounge", desc: "A VIP bed ", src: "vip" },
+  {
+    name: "Outreach",
+    desc: "Donacare Team",
+    src: "/team.jpg",
+  },
+  {
+    name: "Outreach",
+    desc: "Donacare Team",
+    src: "/team2.jpg",
+  },
+  { name: "Outreach", desc: "Visit to LASUTH", src: "/two_men.jpg" },
+  { name: "Outreach", desc: "Visit to LASUTH", src: "/three_doc.jpg" },
+  { name: "Outreach", desc: "Visit to LASUTH ", src: "/office.mp4" },
 ];
 
 const Page = () => {
@@ -44,12 +54,19 @@ const Page = () => {
           >
             <div className='flex flex-col w-max  items-start'>
               <div className='min-w-[80vw]  lg:min-w-[70vw] mb-[10px] min-h-[60vh] lg:min-h-[80vh] relative'>
-                <Image
-                  src={`/media/${details.src}.png`}
-                  fill
-                  className='object-cover hover:cursor-pointer'
-                  alt='image'
-                />
+                {details.src.includes("mp4") ? (
+                  <video className='w-full h-full ' controls preload='none'>
+                    <source src={`/outreach${details.src}`} type='video/mp4' />
+                    Not supported
+                  </video>
+                ) : (
+                  <Image
+                    src={`/outreach${details.src}`}
+                    fill
+                    className='object-cover hover:cursor-pointer'
+                    alt='image'
+                  />
+                )}
               </div>
               <h5 className='font-bold mb-[10px] text-[#3f3f3f] text-lg lg:text-[24px] tracking-[0] leading-[normal]'>
                 {details.name}
