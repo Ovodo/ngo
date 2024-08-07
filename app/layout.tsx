@@ -12,7 +12,7 @@ const inter = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Dona life foundation",
+  title: "Donacare Foundation",
   description: "Helping those in need of surgical operations and treatments",
 };
 
